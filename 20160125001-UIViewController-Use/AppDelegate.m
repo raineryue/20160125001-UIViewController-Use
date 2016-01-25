@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "SecondViewController.h"
+#import "OneViewController.h"
+#import "ThreeViewController.h"
+#import "ThreeViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +20,26 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // 设置window的Frame
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+    // 1.代码创建控制器
+//    self.window.rootViewController = [[OneViewController alloc] init];
+    
+    // 2.storyboard创建
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SecondViewController" bundle:nil];
+//    self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
+    
+    // 3.xib创建
+    ThreeViewController *threeViewController = [[ThreeViewController alloc] initWithNibName:@"ThreeViewController" bundle:nil];
+    self.window.rootViewController = threeViewController;
+    
+    
+//    FourViewController *fourViewController = [[FourViewController alloc] initWithNibName:@"FourViewController" bundle:nil];
+//    self.window.rootViewController = fourViewController;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
